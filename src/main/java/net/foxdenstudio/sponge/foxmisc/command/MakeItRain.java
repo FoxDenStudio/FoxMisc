@@ -8,7 +8,6 @@ import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.projectile.Arrow;
-import org.spongepowered.api.entity.projectile.ThrownPotion;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.Texts;
 
@@ -22,7 +21,7 @@ public class MakeItRain implements CommandCallable {
             Player p = (Player) source;
             for (double i = -1; i <= 1; i += 0.1) {
                 for (double j = -1; j <= 1; j += 0.1) {
-                    Optional<Arrow> potionOpt = p.launchProjectile(Arrow.class, new Vector3d(i/2, 1, j/2));
+                    Optional<Arrow> potionOpt = p.launchProjectile(Arrow.class, new Vector3d(i / 2, 1, j / 2));
                     if (potionOpt.isPresent()) {
                         //ThrownPotion pot = potionOpt.get();
                         //PotionEffectData data = Sponge.getDataManager().getManipulatorBuilder(PotionEffectData.class).get().create();
