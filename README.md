@@ -1,6 +1,8 @@
 # FoxMisc [![Build Status](https://travis-ci.org/FoxDenStudio/FoxMisc.svg?branch=master)](https://travis-ci.org/FoxDenStudio/FoxMisc)
 A Random plugin for [SpongeAPI](https://github.com/SpongePowered/SpongeAPI).
+
 Requires [FoxCore](https://github.com/FoxDenStudio/FoxCore).
+
 I made this because I was bored and wanted to make it rain health potions and cats.
 
 ## Building from source
