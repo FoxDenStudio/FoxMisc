@@ -9,14 +9,15 @@ import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.event.EventManager;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameInitializationEvent;
+import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
 
 import java.io.File;
 
-@Plugin(id = "foxmisc", name = "FoxMisc", version = FoxMiscMain.PLUGIN_VERSION, dependencies = "required-after:foxcore")
+@Plugin(id = "foxmisc", name = "FoxMisc", dependencies = {
+        @Dependency(id = "foxcore")
+})
 public class FoxMiscMain {
-
-    public static final String PLUGIN_VERSION = "0.1.0-SNAPSHOT";//VERSION
 
     @Inject
     private Logger logger;

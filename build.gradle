@@ -1,37 +1,45 @@
+apply from: project(":FoxCore").file("gradle/versions.gradle")
 
-plugins {
-    id 'java'
-    // id 'com.github.johnrengelman.shadow' version '1.2.2'
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = 'gradle-plugins'
+            url = 'https://plugins.gradle.org/m2'
+        }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name 'Sponge maven repo'
+            url 'http://repo.spongepowered.org/maven'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'gradle.plugin.org.spongepowered:spongegradle:0.7'
+        classpath 'org.spongepowered:event-impl-gen:2.0.0-SNAPSHOT'
+        //classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
 }
 
-apply from: project(":FoxCore").file("sponge.gradle")
+apply plugin: 'org.spongepowered.plugin'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-group 'net.foxdenstudio.sponge.foxmisc'
+group 'net.foxdenstudio.sponge'
 version 'ALPHA-SNAPSHOT'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
-repositories {
-    mavenCentral()
-    maven {
-        name 'Sponge maven repo'
-        url 'http://repo.spongepowered.org/maven'
-    }
-}
+apply from: project(":FoxCore").file("gradle/fox.gradle")
+apply from: project(":FoxCore").file("gradle/publish.gradle")
+apply from: project.file("gradle/foxmisc.gradle")
+apply from: project(":FoxCore").file("gradle/minecraft.gradle")
 
 dependencies {
     compile project(':FoxCore')
     compile "org.spongepowered:spongeapi:$spongeVersion"
-    // compile 'org.mcstats.sponge:metrics:R8-SNAPSHOT'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
-
-/*
-shadowJar {
-    dependencies {
-        include(dependency("org.mcstats.sponge:metrics"))
-    }
-    relocate 'org.mcstats', 'net.foxdenstudio.foxguard.mcstats'
-}
-*/
