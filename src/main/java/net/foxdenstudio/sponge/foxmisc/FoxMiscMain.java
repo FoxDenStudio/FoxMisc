@@ -14,9 +14,15 @@ import org.spongepowered.api.plugin.Plugin;
 
 import java.io.File;
 
-@Plugin(id = "foxmisc", name = "FoxMisc", dependencies = {
-        @Dependency(id = "foxcore")
-})
+@Plugin(id = "foxmisc",
+        name = "FoxMisc",
+        dependencies = {
+                @Dependency(id = "foxcore")
+        },
+        description = "A plugin with random things in it, made for SpongeAPI. Requires FoxCore.",
+        authors = {"gravityfox"},
+        url = "https://github.com/FoxDenStudio/FoxMisc"
+)
 public class FoxMiscMain {
 
     @Inject
@@ -30,7 +36,7 @@ public class FoxMiscMain {
     private File configDirectory;
 
     @Listener
-    public void gameInit(GameInitializationEvent event){
+    public void gameInit(GameInitializationEvent event) {
         registerCommands();
     }
 
